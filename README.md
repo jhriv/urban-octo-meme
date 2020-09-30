@@ -24,7 +24,7 @@ docker login registry.redhat.io
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
 docker build --secret id=rhsm,src=.rhsm --tag urban-octo-meme "github.com/jhriv/urban-octo-meme#main"
-docker run --detach --publish 9292:9292 urban-octo-meme
+docker-compose up --detach
 curl http://localhost:9292/
 ```
 

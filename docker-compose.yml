@@ -1,0 +1,8 @@
+---
+
+version: '3.8'
+services:
+  web:
+    image: urban-octo-meme
+    ports:
+      - '9292:9292'
