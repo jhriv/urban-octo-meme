@@ -16,14 +16,28 @@ A user named `johnny` with a password of `appleseed` would have
 johnny:appleseed
 ```
 
-Usage:
+Build:
 ---
+### NB:
+
+The `jhriv/urban-octo-meme` is a private repository. Use your own private repository.
 
 ```bash
 docker login registry.redhat.io
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
-docker build --secret id=rhsm,src=.rhsm --tag urban-octo-meme "github.com/jhriv/urban-octo-meme#main"
+docker build --secret id=rhsm,src=.rhsm --tag jhriv/urban-octo-meme --file Dockerfile-uom .
+docker push jhriv/urban-octo-meme:latest
+```
+
+Usage:
+---
+### NB:
+
+The `jhriv/urban-octo-meme` is a private repository. Use your own private repository.
+
+```bash
+docker build --build-arg repository=jhriv/urban-octo-meme --tag urban-octo-meme .
 docker-compose up --detach
 curl http://localhost:9292/
 ```
