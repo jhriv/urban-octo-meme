@@ -7,20 +7,20 @@ containerized apps.
 Setup
 ---
 
-Create a file named `.rhsm`[¹][1] that contains your RHEL Developer credentials in
-`<username>:<password>` format[²][2].
+Get your organization and activation key from
+https://access.redhat.com/management/activation_keys
 
-Example:
-A user named `johnny` with a password of `appleseed` would have
+Add the desired organization and activation key to the file `.rhsm` [¹][1]
 ```
-johnny:appleseed
+ORG=12345
+KEY=containers-r-us
 ```
 
 Build:
 ---
 ### NB:
 
-The `jhriv/urban-octo-meme` is a private repository. Use your own private repository.
+The `jhriv/urban-octo-meme` repository is private. Use your own private repository.
 
 ```bash
 docker login registry.redhat.io
@@ -34,7 +34,7 @@ Usage:
 ---
 ### NB:
 
-The `jhriv/urban-octo-meme` is a private repository. Use your own private repository.
+The `jhriv/urban-octo-meme` repository is private. Use your own private repository.
 
 ```bash
 docker build --build-arg repository=jhriv/urban-octo-meme --tag urban-octo-meme .
@@ -42,14 +42,5 @@ docker-compose up --detach
 curl http://localhost:9292/
 ```
 
-BUGS:
----
-
-If your password or username has a colon in it, please fix [subscribe.sh][S] and make a pull request.
-
-<!-- References -->
-[S]: https://github.com/jhriv/urban-octo-meme/blob/main/subscribe.sh
-
 <!-- Footnotes -->
 [1]: # "There is nothing special about this name, as long as it is consistent with the src specification in the docker build invocation."
-[2]: # "This very bad practice. Until Docker lets us have an interactive means to pass secrets, this will have to do. My pull request DMs are open."
